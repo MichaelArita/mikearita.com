@@ -1,0 +1,206 @@
+.about {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-20);
+  align-items: center;
+}
+
+/* Text column */
+.about__heading {
+  margin-bottom: var(--space-8);
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-10);
+}
+
+.about__body p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.about__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-10);
+}
+
+.about__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.about__highlight svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.about__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: gap var(--transition-fast);
+}
+
+.about__cta:hover {
+  gap: var(--space-3);
+}
+
+.about__cta svg {
+  transition: transform var(--transition-fast);
+}
+
+.about__cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* Visual column */
+.about__visual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about__image-wrap {
+  position: relative;
+}
+
+.about__image-placeholder {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__image-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #1e1e2e 0%, #0f0f1a 50%, #1a1a2e 100%);
+}
+
+/* Subtle dot pattern overlay */
+.about__image-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.about__image-initials {
+  position: relative;
+  z-index: 1;
+  font-size: 6rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.6;
+  user-select: none;
+}
+
+.about__image-decoration {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-accent);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cards */
+.about__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.about__card {
+  padding: var(--space-6);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.about__card--accent {
+  background: var(--color-accent-subtle);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.about__card-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.about__card--accent .about__card-value {
+  color: var(--color-accent-light);
+}
+
+.about__card-label {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+
+  .about__visual {
+    order: -1;
+  }
+
+  .about__image-placeholder {
+    aspect-ratio: 16 / 7;
+  }
+
+  .about__image-initials {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__image-placeholder {
+    aspect-ratio: 4 / 3;
+  }
+}
