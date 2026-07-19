@@ -1,6 +1,7 @@
 .footer {
   border-top: 1px solid var(--color-border);
   background: var(--color-bg);
+  scroll-snap-align: end;
 }
 
 .footer__inner {

@@ -1,8 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Hero.css'
+
+const NAMES = ['Mike', 'Michael']
 
 export default function Hero() {
   const canvasRef = useRef(null)
+  const [nameIndex, setNameIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNameIndex((prev) => (prev + 1) % NAMES.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -95,7 +105,12 @@ export default function Hero() {
           </p>
 
           <h1 className="hero__heading">
-            <span className="hero__heading-name">Mike Arita</span>
+            <span className="hero__heading-name">
+              <span className="hero__name-flip" key={nameIndex}>
+                {NAMES[nameIndex]}
+              </span>
+              {' '}Arita
+            </span>
             <br />
             <span className="hero__heading-role">Design &</span>
             <br />
